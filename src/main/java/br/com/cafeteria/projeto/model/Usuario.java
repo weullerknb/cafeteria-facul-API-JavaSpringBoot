@@ -1,7 +1,5 @@
 package br.com.cafeteria.projeto.model;
 
-import java.util.Date;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,7 +23,7 @@ public class Usuario {
 	private String cpf;
 	
 	@Column(name = "nascimento", nullable = true)
-	private Date nascimento;
+	private String nascimento;
 	
 	@Column(name = "telefone", length = 15, nullable = true)
 	private String telefone;
@@ -54,10 +52,10 @@ public class Usuario {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	public Date getNascimento() {
+	public String getNascimento() {
 		return nascimento;
 	}
-	public void setNascimento(Date nascimento) {
+	public void setNascimento(String nascimento) {
 		this.nascimento = nascimento;
 	}
 	public String getTelefone() {
@@ -78,6 +76,5 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
 	
 }
