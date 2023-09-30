@@ -1,11 +1,15 @@
 package br.com.cafeteria.projeto.model;
 
+import org.hibernate.validator.constraints.br.CPF;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "usuarios")
@@ -16,22 +20,30 @@ public class Usuario {
 	@Column(name = "id")
 	private Integer id;
 	
-	@Column(name = "nome", length = 100, nullable = true)
+	@NotBlank(message = "Nome é obrigatório!")
+	@Column(name = "nome", length = 100, nullable = false)
 	private String nome;
 	
-	@Column(name = "cpf", length = 15, nullable = true)
+	@CPF(message = "Insira um CPF válido!")
+	@NotBlank(message = "CPF é obrigatório!")
+	@Column(name = "cpf", length = 15, nullable = false)
 	private String cpf;
 	
-	@Column(name = "nascimento", nullable = true)
+	@NotBlank(message = "Data de nascimento é obrigatório!")
+	@Column(name = "nascimento", nullable = false)
 	private String nascimento;
 	
-	@Column(name = "telefone", length = 15, nullable = true)
+	@NotBlank(message = "Telefone é obrigatório!")
+	@Column(name = "telefone", length = 15, nullable = false)
 	private String telefone;
 	
-	@Column(name = "email", length = 50, nullable = true)
+	@Email(message = "Insira um email válido!")
+	@NotBlank(message = "Email é obrigatório!")
+	@Column(name = "email", length = 50, nullable = false)
 	private String email;
 	
-	@Column(name = "senha", columnDefinition = "TEXT", nullable = true)
+	@NotBlank(message = "Senha é obrigatório!")
+	@Column(name = "senha", columnDefinition = "TEXT", nullable = false)
 	private String senha;
 	
 	public Integer getId() {
